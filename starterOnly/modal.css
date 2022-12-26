@@ -232,6 +232,13 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
+
+.verification {
+  color: red;
+  font-size: 13px;
+  
+}
+
 /* 
 input[data-error]::after {
     content: attr(data-error);

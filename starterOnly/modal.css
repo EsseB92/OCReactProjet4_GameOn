@@ -68,7 +68,7 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1040px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -76,7 +76,7 @@ img {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1040px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -89,17 +89,6 @@ img {
     text-align: left;
   }
 }
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
 
 main {
   font-size: 130%;
@@ -185,13 +174,42 @@ main {
 
 .modal-validation {
   padding: 15px 8%;
-  margin: 15px auto;
+  margin: 50px auto;
   display: none;
+  min-height: 650px;
+}
+
+.modal-validation span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.btn-close {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+}
+
+@media screen and (max-width: 800px) {
+  .bground {
+    top:50px;
+    background-color: rgba(26, 39, 156, 0);
+  }
+  
+  .content {
+    max-width: none;
+    height: 92%;
+  }
+
 }
 
 label {
@@ -478,6 +496,7 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
@@ -530,6 +549,12 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .hero-headline {
+    font-size: 4.5rem;
   }
 }
 

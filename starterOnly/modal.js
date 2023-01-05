@@ -69,134 +69,132 @@ modalCloseBtn.addEventListener("click", closeModal);
 
 
 /* FUNCTION */
-
+// Checking the 'firstname' field
 function isFirstnameValid() {
   if (firstname.value == "") {
-    firstVerif.innerHTML = "Vous devez entrer votre prénom."
+    firstVerif.innerHTML = "Vous devez entrer votre prénom.";
     return false;
 
   } else if (firstname.value.length < 2) {
-    firstVerif.innerHTML = "Veuillez entrer 2 caractères ou plus pour le prénom."
+    firstVerif.innerHTML = "Veuillez entrer 2 caractères ou plus pour le prénom.";
     return false;
 
   } else if (!(/^[A-Za-z ]+$/.test(firstname.value))) {
-    firstVerif.innerHTML = "Seuls les caractères alphabétiques sont acceptés pour le prénom."
+    firstVerif.innerHTML = "Seuls les caractères alphabétiques sont acceptés pour le prénom.";
     return false;
 
   } else {
-    firstVerif.innerHTML = ""
+    firstVerif.innerHTML = "";
     return true;
   }
 }
 
+// Checking the 'lastname' field
 function isLastnameValid() {
   if (lastname.value == "") {
-    lastVerif.innerHTML = "Vous devez entrer votre nom."
+    lastVerif.innerHTML = "Vous devez entrer votre nom.";
     return false;
 
   } else if (lastname.value.length < 2) {
-    lastVerif.innerHTML = "Veuillez entrer 2 caractères ou plus pour le nom."
+    lastVerif.innerHTML = "Veuillez entrer 2 caractères ou plus pour le nom.";
     return false;
 
   } else if (!(/^[A-Za-z\s]+$/.test(lastname.value))) {
-    lastVerif.innerHTML = "Seuls les caractères alphabétiques sont acceptés pour le nom."
+    lastVerif.innerHTML = "Seuls les caractères alphabétiques sont acceptés pour le nom.";
     return false;
 
   } else {
-    lastVerif.innerHTML = ""
+    lastVerif.innerHTML = "";
     return true;
   }
 }
 
+// Checking the 'email' field
 function isEmailValid() {
   if (email.value == "") {
-    emailVerif.innerHTML = "Vous devez entrer votre adresse mail."
+    emailVerif.innerHTML = "Vous devez entrer votre adresse mail.";
     return false;
 
   } else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))) {
-    emailVerif.innerHTML = "Veuillez entrer une adresse mail valide (example@gmail.com)."
+    emailVerif.innerHTML = "Veuillez entrer une adresse mail valide (example@gmail.com).";
     return false;
 
   } else {
-    emailVerif.innerHTML = ""
+    emailVerif.innerHTML = "";
     return true;
   }
 }
 
+// Checking the 'birthdate' field
 function isBirthdateValid() {
   const currentDate = new Date();
   const birthdate = new Date(Date.parse(birthdateTemp.value));
   const days = difference(birthdate, currentDate);
-  
+
   if (!birthdateTemp.value) {
-    birthdateVerif.innerHTML = "Vous devez entrer votre date de naissance."
+    birthdateVerif.innerHTML = "Vous devez entrer votre date de naissance.";
     return false;
 
   } else if (days < 0) {
-    birthdateVerif.innerHTML = "Votre date de naissance est incorrecte."
+    birthdateVerif.innerHTML = "Votre date de naissance est incorrecte.";
     return false;
 
   } else if (days < 1825) { // 1825 = 5ans
-    birthdateVerif.innerHTML = "Vous devez avoir au moins 5 ans pour vous inscrire."
+    birthdateVerif.innerHTML = "Vous devez avoir au moins 5 ans pour vous inscrire.";
     return false;
 
   } else if (days > 45625) { // 45625 = 125ans
-    birthdateVerif.innerHTML = "Vous ne pouvez pas avoir plus de 125 ans."
+    birthdateVerif.innerHTML = "Vous ne pouvez pas avoir plus de 125 ans.";
     return false;
 
   } else {
-    birthdateVerif.innerHTML = ""
+    birthdateVerif.innerHTML = "";
     return true;
   }
 }
 
+// Checking the 'quantity' field
 function isquantityValid() {
   if (quantity.value == "") {
-    quantityVerif.innerHTML = "Vous devez entrer le nombre de tournois effectués."
+    quantityVerif.innerHTML = "Vous devez entrer le nombre de tournois effectués.";
     return false;
 
   } else if (quantity.value < 0) {
-    quantityVerif.innerHTML = "Le nombre de tournois effectués ne peut pas être inférieur à 0."
+    quantityVerif.innerHTML = "Le nombre de tournois effectués ne peut pas être inférieur à 0.";
     return false;
 
   } else if (quantity.value > 99) {
-    quantityVerif.innerHTML = "Le nombre de tournois effectués ne peut pas être supérieur à 99."
+    quantityVerif.innerHTML = "Le nombre de tournois effectués ne peut pas être supérieur à 99.";
     return false;
 
   } else {
-    quantityVerif.innerHTML = ""
+    quantityVerif.innerHTML = "";
     return true;
   }
 }
 
+// Checking the 'location' field
 function isLocationValid() {
   var radio = document.querySelector('input[name = "location"]:checked');
   if (radio == null) {
-    locationVerif.innerHTML = "Vous devez sélectionner une ville où vous souhaiteriez participer à un tournoi."
+    locationVerif.innerHTML = "Vous devez sélectionner une ville où vous souhaiteriez participer à un tournoi.";
     return false;
-
   } else {
-    locationVerif.innerHTML = ""
+    locationVerif.innerHTML = "";
     return true;
   }
 }
 
+// Checking the 'EULA' field (CGU in french)
 function isConditionsValid() {
   if (!conditions.checked) {
-    conditionsVerif.innerHTML = "Vous devez accepter les conditions pour soumettre ce formulaire."
+    conditionsVerif.innerHTML = "Vous devez accepter les conditions pour soumettre ce formulaire.";
     return false;
 
   } else {
-    conditionsVerif.innerHTML = ""
+    conditionsVerif.innerHTML = "";
     return true;
   }
-}
-
-
-
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
 }
 
 // hide a division
@@ -209,6 +207,11 @@ function show(division) {
   division.style.display = "block";
 }
 
+// launch modal form
+function launchModal() {
+  show(modalbg);
+}
+
 // close modal form
 function closeModal() {
   show(modalBody);
@@ -217,12 +220,12 @@ function closeModal() {
   form.reset();
 }
 
-// get age
+// Calculation of the number of days between the 'birthdate' field and the current date
 function difference(date1, date2){
   const date1utc = Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate());
   const date2utc = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate());
   const day = 1000*60*60*24;
-  return(date2utc - date1utc)/day
+  return(date2utc - date1utc)/day;
 }
 
 

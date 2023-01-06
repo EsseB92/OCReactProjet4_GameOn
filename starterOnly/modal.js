@@ -71,7 +71,7 @@ modalCloseBtn.addEventListener("click", closeModal);
 /* FUNCTION */
 // Checking the 'firstname' field
 function isFirstnameValid() {
-  if (firstname.value == "") {
+  if (firstname.value.trim() == "") {
     firstVerif.innerHTML = "Vous devez entrer votre prénom.";
     return false;
 
@@ -91,7 +91,7 @@ function isFirstnameValid() {
 
 // Checking the 'lastname' field
 function isLastnameValid() {
-  if (lastname.value == "") {
+  if (lastname.value.trim() == "") {
     lastVerif.innerHTML = "Vous devez entrer votre nom.";
     return false;
 
@@ -111,7 +111,7 @@ function isLastnameValid() {
 
 // Checking the 'email' field
 function isEmailValid() {
-  if (email.value == "") {
+  if (email.value.trim() == "") {
     emailVerif.innerHTML = "Vous devez entrer votre adresse mail.";
     return false;
 
